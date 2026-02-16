@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETH to Linea: How to Bridge from Ethereum Safely (Step-by-Step Guide)</title>
+<meta name="description" content="Learn how to bridge ETH to Linea safely from Ethereum mainnet. Step-by-step instructions, fees explained, risks, troubleshooting, and security best practices.">
+<link rel="canonical" href="https://staking-polygon.com/">
+<style>
+:root{
+  --bg-gradient: linear-gradient(135deg,#f8fafc 0%,#eef2ff 50%,#f8fafc 100%);
+  --text:#0f172a;
+  --muted:#475569;
+  --accent:#4f46e5;
+  --accent-soft:#e0e7ff;
+  --border:#e2e8f0;
+  --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg-gradient);
+  color:var(--text);
+  line-height:1.7;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 24px;border-bottom:1px solid var(--border);
+  background:#ffffffcc;backdrop-filter:saturate(180%) blur(6px);
+  position:sticky;top:0;z-index:10;
+}
+.brand{font-weight:700}
+.nav a{margin-left:16px;font-size:14px;color:var(--muted)}
+.hero{
+  text-align:center;padding:56px 20px 40px 20px;max-width:860px;margin:0 auto;
+}
+.hero h1{font-size:34px;margin-bottom:16px}
+.hero p.lead{color:var(--muted);max-width:720px;margin:0 auto 20px auto}
+.pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.pill{
+  background:var(--accent-soft);color:var(--accent);
+  padding:6px 12px;border-radius:999px;font-size:13px;font-weight:500;
+}
+.cta-main{
+  display:inline-block;background:var(--accent);color:#fff;
+  padding:12px 22px;border-radius:8px;font-weight:600;margin-bottom:14px;
+}
+.quick-rule{font-size:14px;color:var(--muted);margin-top:6px}
+.wrapper{
+  display:flex;gap:40px;max-width:1200px;margin:0 auto;padding:20px;
+}
+article{
+  flex:1;max-width:760px;
+}
+section{margin-bottom:48px}
+h2{font-size:24px;margin-bottom:16px;margin-top:8px}
+h3{font-size:18px;margin:20px 0 8px 0}
+p{margin-bottom:14px}
+ul,ol{margin:10px 0 16px 22px}
+li{margin-bottom:8px}
+table{
+  width:100%;border-collapse:collapse;margin:20px 0;background:var(--card);
+  border:1px solid var(--border);border-radius:8px;overflow:hidden
+}
+thead{background:var(--accent-soft)}
+th,td{padding:12px;border-bottom:1px solid var(--border);text-align:left;font-size:14px}
+tr:hover td{background:#f8fafc}
+.cta-box{
+  background:linear-gradient(135deg,#eef2ff,#f8fafc);
+  border:1px solid var(--border);
+  padding:20px;border-radius:12px;margin:24px 0;text-align:center;
+}
+.cta-box a{
+  display:inline-block;margin-top:10px;
+  background:var(--accent);color:#fff;
+  padding:10px 18px;border-radius:6px;font-weight:600;
+}
+.toc{
+  width:260px;position:sticky;top:90px;height:max-content;
+  border-left:1px solid var(--border);padding-left:20px;
+}
+.toc h4{margin-bottom:10px}
+.toc ul{list-style:none;margin-left:0}
+.toc li{margin-bottom:8px}
+.toc a{font-size:14px;color:var(--muted)}
+.toc-toggle{
+  display:none;margin-bottom:16px;background:var(--accent-soft);
+  border:none;padding:8px 12px;border-radius:6px;font-weight:600;color:var(--accent);
+}
+.faq-item{
+  border-bottom:1px solid var(--border);padding:14px 0;
+}
+.faq-question{
+  cursor:pointer;font-weight:600;display:flex;
+  justify-content:space-between;align-items:center;
+}
+.faq-answer{
+  overflow:hidden;transition:max-height 0.3s ease;max-height:0;
+}
+.faq-question span{margin-left:10px}
+footer{
+  border-top:1px solid var(--border);padding:30px 20px;
+  text-align:center;color:var(--muted);font-size:14px;margin-top:40px;
+}
+@media(max-width:1024px){
+  .wrapper{flex-direction:column}
+  .toc{position:relative;width:100%;border-left:none;padding-left:0}
+  .toc-toggle{display:inline-block}
+  .toc ul{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Linea Guide</div>
+  <div class="nav">
+    <a href="#tldr">TL;DR</a>
+    <a href="#how">How</a>
+    <a href="#fees">Fees</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>ETH to Linea: How to Bridge from Ethereum Safely (Step-by-Step Guide)</h1>
+  <p class="lead">Bridging ETH to Linea allows you to use Ethereum on a zkEVM Layer 2 with lower transaction costs and faster execution. This guide explains exactly how to move ETH from Ethereum mainnet to Linea, compare bridge options, manage fees, and avoid common mistakes.</p>
+  <div class="pills">
+    <div class="pill">How ETH to Linea works</div>
+    <div class="pill">Best bridge method</div>
+    <div class="pill">Risks and safety checks</div>
+  </div>
+  <a href="https://staking-polygon.com/" class="cta-main">Bridge securely across chains</a>
+  <div class="quick-rule">Always verify the official bridge URL and start with a small test transaction before moving large amounts.</div>
+</div>
+
+<div class="wrapper">
+  <article>
+
+<section id="tldr">
+<h2>TL;DR: ETH to Linea in Practice</h2>
+<ul>
+<li>Use the official Linea bridge or a trusted third-party bridge.</li>
+<li>You will pay Ethereum mainnet gas for the deposit.</li>
+<li>ETH is locked on Ethereum and credited on Linea.</li>
+<li>Verify transactions on both Ethereum and Linea explorers.</li>
+<li>Keep ETH on Linea for L2 gas after bridging.</li>
+<li>Avoid unofficial links and phishing sites.</li>
+</ul>
+</section>
+
+<section id="what">
+<h2>What “ETH to Linea” Means (Ethereum to Linea Bridge Explained)</h2>
+<p>When users search for “ETH to Linea,” they want to move native ETH from Ethereum mainnet to Linea, a zkEVM-based Layer 2 network. This is a bridge operation, not a simple transfer.</p>
+<p>In a standard lock-and-mint model, ETH is sent to a smart contract on Ethereum where it is locked. An equivalent representation is then credited to your address on Linea. Linea inherits Ethereum security assumptions but executes transactions on Layer 2.</p>
+
+<table>
+<thead>
+<tr><th>Method</th><th>Best for</th><th>Trade-off</th></tr>
+</thead>
+<tbody>
+<tr><td>Official Linea bridge</td><td>Security-focused users</td><td>Requires L1 gas</td></tr>
+<tr><td>Third-party bridge</td><td>Convenience</td><td>Additional smart contract risk</td></tr>
+<tr><td>Exchange withdrawal</td><td>Simplicity</td><td>Custodial dependency</td></tr>
+</tbody>
+</table>
+
+<div class="cta-box">
+  Move assets across chains with confidence<br>
+  <a href="https://staking-polygon.com/">Explore secure bridging</a>
+</div>
+</section>
+
+<section id="how">
+<h2>How to Bridge ETH to Linea (Step-by-Step)</h2>
+
+<h3>1. Prepare Your Wallet</h3>
+<p>Use a non-custodial wallet and ensure you have enough ETH for the bridge amount and gas. Add the Linea network using official RPC details and verify chain ID.</p>
+
+<h3>2. Access the Official Bridge</h3>
+<p>Navigate to the verified Linea bridge URL. Confirm your wallet is connected to Ethereum mainnet and the interface shows Ethereum → Linea.</p>
+
+<h3>3. Enter the ETH Amount</h3>
+<p>Input the amount to bridge and leave a buffer for gas. Review fee estimates carefully. Consider sending a small test transaction first.</p>
+
+<h3>4. Confirm on Ethereum</h3>
+<p>Approve and submit the transaction in your wallet. Track the transaction hash on an Ethereum explorer until it shows success.</p>
+
+<h3>5. Verify on Linea</h3>
+<p>Switch your wallet network to Linea and confirm your ETH balance. If not visible, check a Linea explorer and ensure the correct network is selected.</p>
+</section>
+
+<section id="fees">
+<h2>Fees When Moving ETH to Linea</h2>
+
+<table>
+<thead>
+<tr><th>Fee component</th><th>Where it applies</th><th>What affects it</th><th>How to reduce</th></tr>
+</thead>
+<tbody>
+<tr><td>Ethereum gas fee</td><td>L1 deposit</td><td>Network congestion</td><td>Bridge during lower congestion</td></tr>
+<tr><td>Bridge service fee</td><td>Bridge protocol</td><td>Provider design</td><td>Compare providers</td></tr>
+<tr><td>L2 gas</td><td>On Linea</td><td>L2 activity</td><td>Batch transactions</td></tr>
+<tr><td>Slippage</td><td>Liquidity bridges</td><td>Pool depth</td><td>Use canonical bridge</td></tr>
+</tbody>
+</table>
+
+<p>Fees depend on Ethereum network congestion and the bridge provider. Always review the preview cost before confirming.</p>
+</section>
+
+<section id="mistakes">
+<h2>Common Mistakes When Bridging ETH to Linea</h2>
+<ul>
+<li>Sending ETH directly without using a bridge.</li>
+<li>Using the wrong network in wallet settings.</li>
+<li>Bridging full balance without leaving gas.</li>
+<li>Using unofficial bridge links.</li>
+<li>Ignoring block explorer verification.</li>
+</ul>
+</section>
+
+<section id="troubleshooting">
+<h2>Troubleshooting ETH Not Showing on Linea</h2>
+<ol>
+<li>Confirm Ethereum transaction success.</li>
+<li>Check deposit logs on Ethereum explorer.</li>
+<li>Switch wallet to Linea network.</li>
+<li>Search address on Linea explorer.</li>
+<li>Wait briefly for indexing delays.</li>
+</ol>
+</section>
+
+<section id="security">
+<h2>Security Model of the Ethereum to Linea Bridge</h2>
+<p>Bridges rely on smart contracts on Ethereum and Linea. Risks include smart contract vulnerabilities, upgradeability governance changes, liquidity constraints in third-party bridges, and user operational mistakes.</p>
+<p>Mitigation steps include verifying contract addresses, using hardware wallets for large transfers, and documenting transaction hashes.</p>
+</section>
+
+<section id="eeat">
+<h2>About This Guide</h2>
+<p>This guide is based on standard Layer 2 bridging mechanics and Ethereum smart contract interaction principles. It prioritizes operational clarity and avoids fixed claims about fees or processing times.</p>
+
+<h3>Operational Safety Standards</h3>
+<ul>
+<li>Verify official URLs and contract addresses.</li>
+<li>Confirm correct wallet network and chain ID.</li>
+<li>Check gas preview before signing.</li>
+<li>Start with a small test transfer.</li>
+<li>Confirm success via block explorer.</li>
+</ul>
+
+<h3>Who This Is For</h3>
+<ul>
+<li>Users comfortable with self-custody wallets.</li>
+<li>Ethereum users exploring Layer 2.</li>
+<li>DeFi participants seeking lower costs.</li>
+</ul>
+
+<h3>Who Should Avoid This</h3>
+<ul>
+<li>Users unfamiliar with wallet security.</li>
+<li>Those unwilling to verify URLs.</li>
+<li>Anyone uncomfortable with smart contract risk.</li>
+</ul>
+
+<h3>Disclaimer</h3>
+<p>This content is educational only and not financial advice. Bridging assets involves smart contract and operational risks. Always verify via official documentation.</p>
+</section>
+
+<section id="faq">
+<h2>FAQ</h2>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What does ETH to Linea mean?<span>+</span></div>
+<div class="faq-answer"><p>It refers to bridging ETH from Ethereum mainnet to the Linea Layer 2 network using a bridge protocol.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">How long does bridging take?<span>+</span></div>
+<div class="faq-answer"><p>Processing time varies based on Ethereum confirmation speed and network congestion.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Do I need ETH for gas on Linea?<span>+</span></div>
+<div class="faq-answer"><p>Yes, transactions on Linea require ETH for L2 gas.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Is the official Linea bridge safe?<span>+</span></div>
+<div class="faq-answer"><p>It relies on smart contracts and inherits Ethereum security assumptions, but all smart contracts carry risk.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What if my ETH is not showing?<span>+</span></div>
+<div class="faq-answer"><p>Check Ethereum transaction status, switch to Linea network, and verify on a Linea block explorer.</p></div>
+</div>
+
+</section>
+
+  </article>
+
+  <aside class="toc">
+    <button class="toc-toggle">Table of contents</button>
+    <ul>
+      <li><a href="#tldr">TL;DR</a></li>
+      <li><a href="#what">What It Means</a></li>
+      <li><a href="#how">Step-by-Step</a></li>
+      <li><a href="#fees">Fees</a></li>
+      <li><a href="#mistakes">Mistakes</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#eeat">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </aside>
+</div>
+
+<footer>
+ETH to Linea Educational Guide – 2026. This page is for educational purposes only.
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const expanded=q.getAttribute('aria-expanded')==='true';
+    q.setAttribute('aria-expanded',!expanded);
+    q.querySelector('span').textContent=expanded?'+':'–';
+    const answer=q.nextElementSibling;
+    if(!expanded){
+      answer.style.maxHeight=answer.scrollHeight+'px';
+    }else{
+      answer.style.maxHeight=0;
+    }
+  });
+});
+window.addEventListener('resize',()=>{
+  document.querySelectorAll('.faq-question[aria-expanded="true"]').forEach(q=>{
+    const answer=q.nextElementSibling;
+    answer.style.maxHeight=answer.scrollHeight+'px';
+  });
+});
+const tocToggle=document.querySelector('.toc-toggle');
+const tocList=document.querySelector('.toc ul');
+tocToggle.addEventListener('click',()=>{
+  tocList.style.display=tocList.style.display==='block'?'none':'block';
+});
+</script>
+
+</body>
+</html>
