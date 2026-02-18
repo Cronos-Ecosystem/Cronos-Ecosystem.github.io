@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETH to Linea: Safe Step‑by‑Step Bridge Guide (Fees, Time & Security Checks)</title>
+<meta name="description" content="Learn how to bridge ETH to Linea safely. Step-by-step instructions, fees, confirmation times, explorer checks, and common mistakes when moving ETH to Linea.">
+<link rel="canonical" href="https://eth-to-linea.github.io/">
+<style>
+:root{
+  --primary:#22c55e;
+  --primary-700:#16a34a;
+  --accent:#34d399;
+  --ink:#e7f6ef;
+  --muted:rgba(231,246,239,.78);
+  --muted-2:rgba(231,246,239,.60);
+  --line:rgba(255,255,255,.10);
+  --shadow:0 18px 60px rgba(0,0,0,.55);
+  --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
+  background:
+    radial-gradient(800px 400px at 20% -10%, rgba(34,197,94,.25), transparent 60%),
+    radial-gradient(600px 300px at 90% 10%, rgba(52,211,153,.18), transparent 60%),
+    radial-gradient(1000px 600px at 50% 120%, rgba(34,197,94,.15), transparent 70%),
+    #0b1411;
+  color:var(--ink);
+  line-height:1.65;
+}
+.container{max-width:1120px;margin:0 auto;padding:0 20px}
+header.hero{padding:60px 0 40px}
+.hero-grid{display:flex;justify-content:center}
+.hero-card{
+  max-width:1100px;
+  width:100%;
+  padding:76px 72px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
+}
+.brand-row{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.brand-logo{
+  width:48px;height:48px;border-radius:14px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  box-shadow:0 0 40px rgba(34,197,94,.6);
+}
+.muted{color:var(--muted)}
+.muted-2{color:var(--muted-2)}
+h1{font-size:2.4rem;margin-bottom:18px}
+.lead{font-size:1.1rem;color:var(--muted);margin-bottom:26px;max-width:760px}
+.hero-bullets{
+  display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px;list-style:none
+}
+.hero-bullets li{
+  padding:10px 16px 10px 36px;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:.92rem;
+  position:relative;
+}
+.hero-bullets li::before{
+  content:"✓";
+  position:absolute;left:14px;top:8px;
+  color:var(--primary);
+  font-weight:700;
+}
+.cta-center{text-align:center;margin-bottom:26px}
+.cta{
+  display:inline-block;
+  padding:16px 36px;
+  font-weight:700;
+  font-size:1.05rem;
+  color:#04130c;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  border-radius:14px;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(34,197,94,.45), inset 0 1px 0 rgba(255,255,255,.4);
+  transition:all .2s ease;
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(34,197,94,.6)}
+.cta:active{transform:translateY(0)}
+.note{color:var(--muted-2);font-size:.9rem;margin-top:10px}
+.step-guide{padding:40px 0}
+.steps{display:grid;gap:20px}
+.step{
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  padding:24px;
+  border-radius:20px;
+  backdrop-filter:blur(12px);
+}
+.step-number{font-size:1.4rem;margin-bottom:8px;color:var(--primary)}
+main.container{padding:40px 20px 60px}
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  padding:34px;
+  border-radius:var(--radius);
+  margin-bottom:28px;
+  backdrop-filter:blur(12px);
+}
+.card h2{margin-bottom:18px;font-size:1.6rem}
+.card p{margin-bottom:14px;color:var(--muted)}
+.card ul,.card ol{margin:14px 0 14px 22px}
+.card li{margin-bottom:8px}
+.toc-grid{display:grid;gap:10px}
+.toc-grid a{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:var(--muted);
+  font-size:.9rem;
+}
+table{width:100%;border-collapse:collapse;margin-top:18px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:10px;text-align:left;font-size:.9rem}
+th{color:var(--accent)}
+.checklist,.preflight{columns:1}
+@media(min-width:860px){
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .toc-grid{grid-template-columns:repeat(2,1fr)}
+  .checklist{columns:2}
+}
+.faq-item{border-top:1px solid var(--line)}
+.faq-question{
+  cursor:pointer;
+  padding:16px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:600;
+}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+.faq-answer p{padding-bottom:16px}
+footer{padding:40px 0 60px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div class="hero-card">
+      <div class="brand-row">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <div>
+          <div class="muted" style="font-weight:900; letter-spacing:.2px;">Security-First Guide</div>
+          <div class="muted-2" style="font-size:.95rem;">Ethereum Mainnet → Linea zkEVM</div>
+        </div>
+      </div>
+
+      <h1>ETH to Linea: Safe Bridge Guide</h1>
+      <p class="lead">Move ETH to Linea safely with a clear understanding of fees, confirmations, and finality. This guide explains how ETH to Linea bridging works and how to verify every step on-chain.</p>
+
+      <ul class="hero-bullets">
+        <li>Verify bridge contract before sending</li>
+        <li>Check confirmations on both networks</li>
+        <li>Confirm ETH balance on Linea explorer</li>
+      </ul>
+
+      <div class="cta-center">
+        <a class="cta" href="https://biswap.net" target="_blank" rel="noopener noreferrer">Access a DEX after bridging</a>
+      </div>
+
+      <div class="note"><strong>Quick rule:</strong> Always verify the bridge URL and confirm the transaction on an official block explorer before assuming ETH arrived on Linea.</div>
+    </div>
+  </div>
+</header>
+
+<section class="step-guide">
+  <div class="container">
+    <h2 id="how-works">How to Bridge ETH to Linea Safely</h2>
+    <div class="steps">
+      <div class="step"><div class="step-number">①</div><h3>Connect Wallet on Ethereum</h3><p>Open a verified ETH to Linea bridge interface and connect your wallet while set to Ethereum Mainnet.</p></div>
+      <div class="step"><div class="step-number">②</div><h3>Enter Amount and Review Gas</h3><p>Input the amount of ETH to transfer and review estimated Ethereum gas fees before confirming.</p></div>
+      <div class="step"><div class="step-number">③</div><h3>Confirm and Track Transaction</h3><p>Approve the transaction in your wallet and copy the transaction hash to monitor on Etherscan.</p></div>
+      <div class="step"><div class="step-number">④</div><h3>Verify ETH on Linea</h3><p>After confirmations, switch to Linea network and verify your ETH balance using the Linea block explorer.</p></div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+<section class="card toc" id="toc">
+  <h2>On this page</h2>
+  <div class="toc-grid">
+    <a href="#overview">ETH to Linea Overview</a>
+    <a href="#how-it-works">How ETH to Linea Bridging Works</a>
+    <a href="#how-to">How to Bridge ETH to Linea Step-by-Step</a>
+    <a href="#fees">ETH to Linea Fees & Timelines</a>
+    <a href="#security">ETH to Linea Security Checks</a>
+    <a href="#mistakes">Common ETH to Linea Mistakes</a>
+    <a href="#troubleshooting">ETH to Linea Troubleshooting</a>
+    <a href="#alternatives">Alternatives to ETH to Linea Bridging</a>
+    <a href="#checklist">ETH to Linea Pre-Transfer Checklist</a>
+    <a href="#eeat">Methodology & References</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</section>
+
+<section class="card" id="overview">
+<h2>ETH to Linea Overview: What You’re Actually Doing</h2>
+<p>When you move ETH to Linea, you are bridging assets from Ethereum Mainnet (Layer 1) to Linea, a zkEVM Layer 2 network. This is not a swap; it is a transfer across networks using smart contracts.</p>
+<p>Your ETH on Ethereum is typically locked in a bridge contract. A corresponding amount is then credited to your wallet on Linea.</p>
+<p>The goal of bridging ETH to Linea is usually lower transaction fees and access to DeFi applications deployed on Linea.</p>
+<ul>
+<li>Ethereum Mainnet = source network (L1)</li>
+<li>Linea zkEVM = destination network (L2)</li>
+<li>Bridge contract = mechanism that secures the transfer</li>
+</ul>
+<p>Always confirm which network your wallet is connected to before initiating ETH to Linea. Network mismatch is a common operational error.</p>
+</section>
+
+<section class="card" id="how-it-works">
+<h2>How ETH to Linea Bridging Works (Deposits, Confirmations, Finality)</h2>
+<p>ETH to Linea bridging follows a deposit model. You send ETH to a bridge smart contract on Ethereum; the contract locks it and signals Linea to credit your address.</p>
+<p>From a user perspective, the deposit requires one Ethereum transaction. From a protocol perspective, confirmations on Ethereum must occur before Linea credits the funds.</p>
+<p>The bridge interface may show “processing” even after your wallet confirms. The source of truth is the block explorer, not the UI status.</p>
+<ul>
+<li>Step 1: Send ETH to the bridge contract on Ethereum.</li>
+<li>Step 2: Wait for required Ethereum confirmations.</li>
+<li>Step 3: Verify balance on Linea via its explorer.</li>
+</ul>
+<p>Finality matters. Ethereum blocks must be confirmed before the bridge mints or credits ETH on Linea. Always verify by transaction hash on Etherscan and then cross-check on the Linea Explorer.</p>
+</section>
+
+<section class="card" id="how-to">
+<h2>How to Bridge ETH to Linea Step-by-Step</h2>
+<p>Start by connecting a supported wallet such as MetaMask while set to Ethereum Mainnet. Confirm the URL of the bridge interface before interacting.</p>
+<p>Select Ethereum as the source network and Linea as the destination network. Enter the amount of ETH you want to move.</p>
+<p>Review gas fees carefully before confirming. Ethereum gas is paid at the moment of deposit.</p>
+<ol>
+<li>Connect wallet on Ethereum Mainnet.</li>
+<li>Select ETH and enter transfer amount.</li>
+<li>Review gas estimate and confirm transaction.</li>
+<li>Copy the transaction hash (TxHash).</li>
+<li>Monitor on Etherscan until confirmed.</li>
+<li>Switch wallet network to Linea and verify balance.</li>
+</ol>
+<p>If Linea is not added to your wallet, add it manually using verified RPC details from the project’s official documentation. Do not copy RPC settings from random forums.</p>
+</section>
+
+<section class="card" id="fees">
+<h2>ETH to Linea Fees & Timelines (Source vs Destination)</h2>
+<p>When bridging ETH to Linea, you primarily pay gas on Ethereum. This covers the deposit transaction to the bridge contract.</p>
+<p>After ETH arrives on Linea, you will pay Linea gas for future transactions there. Gas locations differ by network.</p>
+<p>Time depends on Ethereum congestion and required confirmations. Do not assume immediate credit; verify via explorers.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Network</th>
+<th>What You Pay</th>
+<th>What Affects Time</th>
+<th>User Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deposit transaction</td>
+<td>Ethereum Mainnet</td>
+<td>Ethereum gas fee (gwei-based)</td>
+<td>Network congestion and base fee</td>
+<td>Confirm in wallet</td>
+</tr>
+<tr>
+<td>Bridge confirmation</td>
+<td>Ethereum Mainnet</td>
+<td>No extra fee beyond gas</td>
+<td>Block confirmations required</td>
+<td>Wait for confirmations</td>
+</tr>
+<tr>
+<td>Mint/credit on Linea</td>
+<td>Linea</td>
+<td>Usually no additional deposit fee</td>
+<td>Bridge processing logic</td>
+<td>Check Linea explorer</td>
+</tr>
+<tr>
+<td>First transaction on Linea</td>
+<td>Linea</td>
+<td>Linea gas fee</td>
+<td>Linea network load</td>
+<td>Approve and confirm</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Keep extra ETH on Ethereum for gas buffer.</li>
+<li>Do not bridge your entire balance without reserving fees.</li>
+<li>Verify the deposit transaction status before switching networks.</li>
+</ul>
+</section>
+
+<section class="card" id="security">
+<h2>ETH to Linea Security Checks Before and After Bridging</h2>
+<p>Phishing sites often imitate bridge interfaces. Always verify the domain and access it from official documentation.</p>
+<p>Before sending ETH to Linea, review the contract address shown in your wallet confirmation screen. Cross-check it with verified sources.</p>
+<p>After deposit, confirm the transaction on Etherscan. Then verify the credited balance on the Linea Explorer.</p>
+<ul>
+<li>Bookmark the official bridge page.</li>
+<li>Check contract verification status on Etherscan.</li>
+<li>Never sign unknown messages unrelated to the bridge.</li>
+<li>Use a hardware wallet for larger transfers.</li>
+</ul>
+<p>If any wallet prompt looks unusual or requests unrelated permissions, reject it and re-verify the interface.</p>
+</section>
+
+<section class="card" id="mistakes">
+<h2>Common ETH to Linea Mistakes and How to Avoid Them</h2>
+<p>The most common ETH to Linea mistake is selecting the wrong network in your wallet. Always confirm you are on Ethereum before depositing.</p>
+<p>Another frequent issue is insufficient gas. If you send nearly all your ETH, the transaction may fail due to lack of gas buffer.</p>
+<p>Users sometimes close their wallet or browser before copying the transaction hash. Always store your TxHash for verification.</p>
+<ul>
+<li>Do not ignore pending transaction warnings.</li>
+<li>Do not refresh repeatedly during confirmation.</li>
+<li>Do not trust UI alone—verify via explorer.</li>
+</ul>
+<p>If a transaction is stuck, review the nonce and gas settings before attempting replacement or cancellation.</p>
+</section>
+
+<section class="card" id="troubleshooting">
+<h2>ETH to Linea Troubleshooting: Stuck, Delayed, or Missing ETH</h2>
+<p>If your ETH to Linea transaction is pending, check the transaction hash on Etherscan. Confirm whether it is pending, confirmed, or reverted.</p>
+<p>If confirmed on Ethereum but not visible on Linea, verify the destination address and switch your wallet to the Linea network.</p>
+<p>Explorer data is authoritative. If Etherscan shows success, the deposit occurred on Ethereum.</p>
+<ul>
+<li>Check transaction receipt status.</li>
+<li>Confirm wallet address matches on both networks.</li>
+<li>Verify Linea network is properly added.</li>
+<li>Contact official support only after on-chain verification.</li>
+</ul>
+<p>Never send another ETH to Linea transaction to “fix” a delay without understanding the current status.</p>
+</section>
+
+<section class="card" id="alternatives">
+<h2>Alternatives to ETH to Linea Bridging</h2>
+<p>You can bridge ETH to Linea using the canonical bridge or third-party cross-chain bridges. Each carries different trust assumptions.</p>
+<p>Centralized exchanges may allow withdrawal directly to Linea. This requires trusting the exchange and verifying withdrawal network carefully.</p>
+<p>Evaluate bridge risk by reviewing documentation, contract transparency, and operational history.</p>
+<ul>
+<li>Canonical bridge: aligned with project documentation.</li>
+<li>Third-party bridge: may offer speed or UI differences.</li>
+<li>Exchange withdrawal: custodial risk.</li>
+</ul>
+<p>Before choosing an alternative for ETH to Linea, confirm supported networks and withdrawal settings to avoid permanent loss.</p>
+</section>
+
+<section class="card" id="checklist">
+<h2>Pre-Transfer Checklist for ETH to LInea</h2>
+<h3>Pre-flight (60 seconds)</h3>
+<ul class="preflight">
+<li>Confirm wallet is on Ethereum Mainnet.</li>
+<li>Verify official bridge URL.</li>
+<li>Check ETH balance and gas buffer.</li>
+<li>Confirm destination network is Linea.</li>
+<li>Prepare to copy transaction hash.</li>
+</ul>
+<h3>Security-first checklist</h3>
+<ul class="checklist">
+<li>Bookmark the verified bridge page.</li>
+<li>Cross-check contract address on Etherscan.</li>
+<li>Review wallet confirmation details before signing.</li>
+<li>Keep extra ETH for gas.</li>
+<li>Test with a small amount first.</li>
+<li>Do not use public Wi-Fi for large transfers.</li>
+<li>Ensure seed phrase is securely stored offline.</li>
+<li>Verify Linea RPC from official documentation.</li>
+<li>Confirm TxHash appears on Etherscan.</li>
+<li>Wait for required confirmations.</li>
+<li>Switch to Linea network after confirmation.</li>
+<li>Check balance on Linea Explorer.</li>
+<li>Do not trust screenshots as proof.</li>
+<li>Avoid clicking sponsored search ads.</li>
+<li>Reject unrelated signature requests.</li>
+<li>Use hardware wallet for significant ETH amounts.</li>
+</ul>
+</section>
+
+<section class="eeat card" id="eeat">
+<h2>Methodology & References</h2>
+<p>This guide is based on the operational mechanics of Ethereum Layer 1 and zkEVM Layer 2 bridges. It emphasizes on-chain verification, confirmation tracking, and contract review rather than UI assumptions.</p>
+<p>All steps assume users independently verify network settings, bridge documentation, and explorer data before initiating an ETH to Linea transfer.</p>
+<h3>Primary references to verify</h3>
+<ul>
+<li>https://ethereum.org</li>
+<li>https://metamask.io</li>
+<li>https://etherscan.io</li>
+<li>Official Linea documentation (verify via project site)</li>
+</ul>
+<h3>Security references</h3>
+<ul>
+<li>https://revoke.cash</li>
+<li>https://openzeppelin.com</li>
+</ul>
+<p class="disclaimer">Educational only, not financial advice. Always verify contracts, networks, and documentation independently before moving funds.</p>
+</section>
+
+<section class="card faq-section" id="faq">
+<h2>FAQ</h2>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What is the safest way to bridge ETH to Linea?<span>+</span></div>
+<div class="faq-answer"><p>Use a verified bridge interface linked from official documentation. Confirm the contract address in your wallet and verify the transaction on Etherscan before switching to Linea. Never rely solely on the bridge UI status.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">How long does ETH to Linea usually take?<span>+</span></div>
+<div class="faq-answer"><p>Time depends on Ethereum congestion and required confirmations. Check your transaction hash on Etherscan to confirm status. Funds appear on Linea after confirmations are finalized.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What fees should I expect when moving ETH to Linea?<span>+</span></div>
+<div class="faq-answer"><p>You pay Ethereum gas for the deposit transaction. After arrival, you pay Linea gas for transactions on Linea. Keep a buffer of ETH on Ethereum to avoid failed deposits.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Is ETH to Linea a taxable event?<span>+</span></div>
+<div class="faq-answer"><p>Bridging may be treated differently depending on jurisdiction. Review local tax guidance and transaction records. Always keep your transaction hashes for documentation.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Do I need ETH on Linea for gas after bridging?<span>+</span></div>
+<div class="faq-answer"><p>Yes. Transactions on Linea require Linea gas, paid in ETH on Linea. After bridging, ensure some ETH remains on Linea for future activity.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Why is my ETH to Linea transaction pending on Ethereum?<span>+</span></div>
+<div class="faq-answer"><p>It may be due to low gas or network congestion. Check Etherscan for status and gas price. Consider replacing the transaction only if you understand nonce management.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Can I cancel an ETH to Linea transaction?<span>+</span></div>
+<div class="faq-answer"><p>If the transaction is still pending, you may replace it with a higher gas transaction using the same nonce. If already confirmed, it cannot be reversed.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What happens if ETH to Linea fails?<span>+</span></div>
+<div class="faq-answer"><p>If the transaction reverts, ETH remains in your Ethereum wallet minus gas spent. Confirm failure status on Etherscan before retrying.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">How do I verify ETH to Linea on a block explorer?<span>+</span></div>
+<div class="faq-answer"><p>Use the transaction hash on Etherscan to confirm deposit. Then search your wallet address on the Linea Explorer to verify credited ETH.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Is there a minimum amount for ETH to Linea transfers?<span>+</span></div>
+<div class="faq-answer"><p>Minimums depend on the bridge interface. Always review the bridge documentation and ensure gas costs do not exceed the amount transferred.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Do I pay gas on both Ethereum and Linea?<span>+</span></div>
+<div class="faq-answer"><p>You pay Ethereum gas for the deposit. After ETH arrives, you pay Linea gas for transactions performed on Linea. Gas is network-specific.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Can I send ETH directly to Linea without a bridge?<span>+</span></div>
+<div class="faq-answer"><p>No. Sending ETH directly from Ethereum to a Linea address without a bridge will not transfer funds across networks. Always use a supported bridge or verified withdrawal method.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Why does the ETH to Linea bridge UI show processing?<span>+</span></div>
+<div class="faq-answer"><p>The UI may wait for confirmations or backend processing. Always check the transaction hash on Etherscan for accurate status.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What wallet works best for ETH to Linea?<span>+</span></div>
+<div class="faq-answer"><p>Wallets compatible with Ethereum and custom networks such as MetaMask are commonly used. Ensure Linea network details are added from official sources.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">How do I add Linea network to MetaMask?<span>+</span></div>
+<div class="faq-answer"><p>Obtain RPC details from official Linea documentation. Enter network name, RPC URL, chain ID, and currency symbol carefully, then verify after saving.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What is the difference between canonical and third-party bridges?<span>+</span></div>
+<div class="faq-answer"><p>Canonical bridges are typically maintained in alignment with the network’s documentation. Third-party bridges introduce additional smart contract and operational risk.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Can I bridge tokens other than ETH to Linea?<span>+</span></div>
+<div class="faq-answer"><p>Some bridges support ERC-20 tokens in addition to ETH. Verify supported assets and contract addresses before sending.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">What should I do if ETH appears on Ethereum but not Linea?<span>+</span></div>
+<div class="faq-answer"><p>Confirm the deposit transaction is successful on Etherscan. Then verify your wallet is switched to Linea and check the Linea Explorer before taking further action.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">Is bridging ETH to Linea reversible?<span>+</span></div>
+<div class="faq-answer"><p>No. Once confirmed on Ethereum, the ETH to Linea transaction cannot be reversed. Always double-check amount and network before confirming.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" aria-expanded="false">How do I avoid scams when moving ETH to Linea?<span>+</span></div>
+<div class="faq-answer"><p>Access bridge links only from official documentation. Verify contract addresses and avoid signing unrelated messages. Cross-check every step on a block explorer.</p></div>
+</div>
+
+</section>
+</main>
+
+<footer class="container">
+  <p class="muted">© 2026 ETH to Linea: Safe Bridge Guide. Educational content with security-first operational focus.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(function(q){
+  q.addEventListener('click', function(){
+    var expanded = q.getAttribute('aria-expanded') === 'true';
+    q.setAttribute('aria-expanded', !expanded);
+    var answer = q.nextElementSibling;
+    var symbol = q.querySelector('span');
+    if(!expanded){
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      symbol.textContent = "−";
+    } else {
+      answer.style.maxHeight = null;
+      symbol.textContent = "+";
+    }
+  });
+});
+window.addEventListener('resize', function(){
+  document.querySelectorAll('.faq-question[aria-expanded="true"]').forEach(function(q){
+    var answer = q.nextElementSibling;
+    answer.style.maxHeight = answer.scrollHeight + "px";
+  });
+});
+</script>
+
+</body>
+</html>
